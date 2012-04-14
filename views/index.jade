@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js')
+    script(src='/jquery.masonry.min.js')
+    script(src='/grid.js')
+    link(rel='stylesheet', href='grid.css')
+  body
+    div.header
+      img.logo(src="/images/pgram2.png") p One site to the tune of another
+    div.grid
+        each image in images
+          div.item
+            div.holder
+              a.imglink(href="")
+                img(src="#{image.images.low_resolution.url}")
+            - if (image.caption) 
+                p.description #{image.caption.text}
+            p.stats #{image.likes.count} likes  #{image.comments.count} comments
+            div.convo.attribution
+              a.imglink(href="")
+                img(src="#{image.user.profile_picture}")
+              p
+                a(href="") #{image.user.full_name} 
+                -if (image.tags) 
+                  onto
+                  each tag in image.tags
+                    #{tag}, 
+            div.convo.comments
+              each comment in image.comments.data
+                div.comment
+                  a.imglink(href="")#{comment.from.full_name}
+                    img(src="#{comment.from.profile_picture}")
+                  p #{comment.text}
+                  
+    div.footer

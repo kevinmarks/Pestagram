@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/* RESET
+--------------------------------------------------------------------------------------- */
+html{background: #f7f5f5}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin: 0;padding: 0;}table{border-collapse:collapse;border-spacing: 0;}fieldset,img{border: 0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border: 0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;overflow:hidden;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit; resize: none;outline:none;}legend{color:#000;}
+body {font-family:"helvetica neue",arial,sans-serif;font-size:10px;color:#211922;}table{font-size:inherit;}pre,code,kbd,samp,tt{font-family:monospace;line-height:100%;}em{font-style:italic;}strong{font-weight:bold;}
+
+
+
+/* FOUNDATION
+--------------------------------------------------------------------------------------- */
+h1 {margin: 32px 0 11px; font-size: 3em;}
+h2 {padding: 0 0 8px; font-size: 2.5em;}
+h1, h2 {letter-spacing: -0.0125em; font-weight: bold;}
+p {margin: 0 0 .8em; line-height: 1.35em;}
+a {font-weight: bold; color: #221919; text-decoration: none; outline: none;}
+a:hover {color: #cb2027; text-decoration: underline;}
+textarea, input {padding: 5px; line-height: 1em; color: #8c7e7e; background: #fcf9f9; border: 1px solid; border-color: #ddd #e1dfdf #d1cdcd; box-shadow: inset 0 0 2px rgba(255,255,255,0.75); -moz-box-shadow: inset 0 0 2px rgba(255,255,255,0.75); -webkit-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);}
+textarea:focus, input:focus {background-color: #fff; box-shadow: inset 0 1px 1px rgba(34,29,29,0.1); -moz-box-shadow: inset 0 1px 1px rgba(34,29,29,0.1); -webkit-box-shadow: inset 0 1px 1px rgba(34,29,29,0.1);}
+
+.item { width: 192px; padding: 15px 15px 0; font-size: 11px; background-color: #fff; box-shadow: 0 1px 3px rgba(34,25,25,0.4); -moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4); -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4); float: left; margin:10px;}
+.item .holder {position: relative;}
+.item .PriceContainer {position: absolute; z-index: 2; top: -15px; left: -15px; width: 110px; height: 110px; overflow: hidden;}
+.item .price {position: absolute; z-index: 2; top: 19px; left: -28px; width: 125px; height: 22px; padding-top: 8px; text-align: center; font-size: 11px; color: #524d4d; background-color: #f2f0f0; overflow: hidden; -webkit-transform: rotate(-45deg); -moz-transform:  rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg);}
+.item .imglink {position: relative; }
+.item .imglink:hover {text-decoration: none;}
+.item .imglink img {max-width: 192px; opacity: 1; -webkit-transition: opacity 0.3s; }
+.item .imglink img.lazy { opacity: 0; }
+.item .PinImage { background-color: #f2f0f0; }
+.item .PinImageImg {min-height: 75px; background-color: #f2f0f0;}
+.item .description {margin: 10px 0 5px; overflow: hidden; word-wrap: break-word;}
+
+.convo {margin: 0 -15px; padding: 10px 15px; background-color: #f2f0f0;}
+.convo p {margin: 0 0 0 36px; overflow: hidden; word-wrap: break-word;}
+.convo .imglink {float: left; margin-right: 6px; width: 30px;}
+.convo .imglink img {width: 30px; height: 30px;}
+a.convo {padding: 12px 15px; text-align: center;}
+a.convo:hover {background-color: #f2f0f0;}
+a.convo:active {color: #221919; background-color: #e1dfdf;}
+
+.attribution {margin-top: 10px; color: #ad9c9c;}
+.attribution a {color: #8c7e7e;}
+.attribution p { max-width: 156px; height: 30px; vertical-align: middle;}
+.attribution .NoImage {height: auto; margin: 0;}
+
+.comments {margin: 0 -15px; padding: 0 15px; border-top: 1px solid #d9d4d4;}
+.comments .comment {border-top: 1px solid #fcfafa; border-bottom: 1px solid #d9d4d4; overflow: hidden;}
+.comments .comment:last-child {border-bottom-width: 0;}
+.comments .comment p {width: 156px;}
+.ReportComment {text-shadow: none; opacity: .4; transition: opacity .3s; -moz-transition: opacity .3s; -webkit-transition: opacity .3s;}
+.comment:hover .ReportComment {opacity: 1; font-weight:700;}
