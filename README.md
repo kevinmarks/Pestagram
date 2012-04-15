@@ -5,6 +5,7 @@ Pestagram - it's Pinterest for Instagram
 The thing people find most disconcerting is when information given in one context shows up in another. The recent Girls Around Me controversy illustrates this well. Rather than creating an abstract data visualization, I am taking information from one site - the intimate, emotional, mobile Instagram and presenting with the context of Pinterest - the public, aspirational, image packrat site.
 
 ###Who is it for: 
+I built this as part of the Wall Street Journal Data Transparency weekend. http://datatransparency.wsj.com/
 My target audience is the general public who use both Pinterest and Instagram in their separate contexts. Given that thye are the two fastest growing websites, this shoudl eb a alrge enough group.
 
 ###Your goal for this weekend: 
