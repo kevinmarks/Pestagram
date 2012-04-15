@@ -14,7 +14,7 @@ html
       form(method="post",action="/")
         label enter a tag
         input(type="text",id="tag",name="tag")
-      -if (images[0].location)
+      -if (images && images[0] && images[0].location)
         h2 #{images[0].location.name}
     div#grid
         each image in images
@@ -26,6 +26,9 @@ html
                 - if (image.caption) 
                     p.description #{image.caption.text}
                 p.stats #{image.likes.count} likes  #{image.comments.count} comments
+                - if (image.location)
+                    | at 
+                    a(href="/loc/#{image.location.id}") #{image.location.name}
                 div.convo.attribution
                   a.imglink(href="")
                     img(src="#{image.user.profile_picture}", width="30", height="30")
