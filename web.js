@@ -21,6 +21,14 @@ app.get('/', function(request, response) {
     });
 });
 
+app.get('/:tag', function(request, response) {
+  instagram.tags.media(request.params.tag,function (images, error) {
+    response.render('index', {title:'Hello World!', 
+    url: request.headers.host, images:images});
+    });
+});
+
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);

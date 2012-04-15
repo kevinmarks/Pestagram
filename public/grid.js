@@ -1,7 +1,9 @@
-var $container = $('#grid');
-$container.imagesLoaded(function(){
-  $container.masonry({
+
+$(function(){
+  $('#grid').masonry({
+    // options
     itemSelector : '.item',
-    columnWidth : 222
+    columnWidth : 222,
+    isAnimated: true
   });
 });
