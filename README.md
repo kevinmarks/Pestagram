@@ -6,7 +6,7 @@ The thing people find most disconcerting is when information given in one contex
 
 ###Who is it for: 
 I built this as part of the Wall Street Journal Data Transparency weekend. http://datatransparency.wsj.com/
-My target audience is the general public who use both Pinterest and Instagram in their separate contexts. Given that thye are the two fastest growing websites, this shoudl eb a alrge enough group.
+My target audience is the general public who use both Pinterest and Instagram in their separate contexts. Given that they are the two fastest growing websites, this should be a large enough group.
 
 ###Your goal for this weekend: 
 http://pestagram.com lets you explore tags, popular photos and locations through the Instagram API
@@ -15,7 +15,7 @@ http://pestagram.com lets you explore tags, popular photos and locations through
  I'm starting from scratch - this is my first Heroku and node.js project, but I have written a bit of Javascript before.
 
 ###Anything else we should know: 
-Instagram's 'find photos by location' APIs seem to have mysteriously stopped working recently (possiby after Girls Around Me, possibly after FB bought them.
+Instagram's 'find photos by location' APIs seem to have mysteriously stopped working recently (possibly after Girls Around Me, possibly after FB bought them).
 
 ###Sustainability model:
 I need to add OAuth login for personalization, but the node instagram library 
@@ -27,4 +27,6 @@ Apache Licence (included projects my have other licences). ToS of Instagram may 
 
 I've modified nodestagram a bit for this. It needs more tidying up...
 
-TODO: Add OAuth support so you cna see your own and friends photos in this view. 
+TODO: 
+Add OAuth support so you can see your own and friends photos in this view. 
+Add Pinterest Pin buttons
