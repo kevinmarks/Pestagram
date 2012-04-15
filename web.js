@@ -43,6 +43,18 @@ app.get('/user/:uid', function(request, response) {
     });
 });
 
+app.get('/loc/:id', function(request, response) {
+  instagram.locations.media(request.params.id,function (images, error) {
+    if(!error) {
+        response.render('index', {title:'Pestagram: location', 
+          url: request.headers.host, images:images});
+    } else {
+        response.redirect('back');
+    }
+    });
+});
+
+
 app.post('/', function(request, response) {
   response.redirect('/tag/'+request.body.tag);
 });
