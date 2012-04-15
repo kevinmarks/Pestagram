@@ -16,7 +16,7 @@ app.configure(function(){
 
 app.get('/', function(request, response) {
   instagram.media.popular(function (images, error) {
-    response.render('index', {title:'home', 
+    response.render('index', {title:'Pestagram: Home', 
       url: request.headers.host, images:images});
     });
 });
@@ -24,7 +24,7 @@ app.get('/', function(request, response) {
 app.get('/tag/:tag', function(request, response) {
   instagram.tags.media(request.params.tag,function (images, error) {
     if(!error) {
-        response.render('index', {title:'Tag ' + request.params.tag, 
+        response.render('index', {title:'Pestagram: Tag ' + request.params.tag, 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');
@@ -35,7 +35,7 @@ app.get('/tag/:tag', function(request, response) {
 app.get('/user/:uid', function(request, response) {
   instagram.users.media(request.params.uid,function (images, error) {
     if(!error) {
-        response.render('index', {title:'user', 
+        response.render('index', {title:'Pestagram: user', 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');

@@ -6,17 +6,17 @@ html
     script(src='/jquery.masonry.min.js')
     script(src='/grid.js')
     link(rel='stylesheet', href='/grid.css')
-    title #title
+    title #{title}
   body
     div.header
       a.imglink(href="/")
-        img.logo(src="/images/pgram2.png") 
+        img.logo(src="/images/pestagram2.png") 
       form(method="post",action="/")
         label enter a tag
         input(type="text",id="tag",name="tag")
     div#grid
         each image in images
-          -if (true)
+          -if (image.type == 'image')
               div.item
                 div.holder
                   a.imglink(href="#{image.link}")
@@ -29,15 +29,15 @@ html
                     img(src="#{image.user.profile_picture}", width="30", height="30")
                   p
                     a(href="") #{image.user.full_name} 
-                    -if (image.tags) 
-                      onto
+                    - if (image.tags[0]) 
+                      | onto 
                       each tag in image.tags
-                        a(href="/tag/#{tag}")#{tag} , 
+                        a(href="/tag/#{tag}", rel="tag")#{tag} 
                 div.convo.comments
                   each comment in image.comments.data
                     div.comment
-                      a.imglink(href="")#{comment.from.full_name}
-                        img(src="#{comment.from.profile_picture}")
-                      p #{comment.text}
+                      a.imglink(href="")
+                        img(src="#{comment.from.profile_picture}", width="30", height="30") 
+                      p #{comment.from.full_name} #{comment.text}
                   
     div.footer
