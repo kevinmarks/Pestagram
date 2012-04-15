@@ -21,11 +21,15 @@ app.get('/', function(request, response) {
     });
 });
 
-app.get('/:tag', function(request, response) {
+app.get('/tag/:tag', function(request, response) {
   instagram.tags.media(request.params.tag,function (images, error) {
     response.render('index', {title:'Hello World!', 
     url: request.headers.host, images:images});
     });
+});
+
+app.post('/', function(request, response) {
+  response.redirect('/tag/'+request.body.tag);
 });
 
 

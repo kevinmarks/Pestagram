@@ -1,8 +1,11 @@
+  $(function(){
 
-$(function(){
-  $('#grid').masonry({
-    // options
-    itemSelector : '.item',
-    isAnimated: true
+    var $container = $('#grid');
+  
+    $container.imagesLoaded( function(){
+      $container.masonry({
+        itemSelector : '.item'
+      });
+    });
+  
   });
-});
