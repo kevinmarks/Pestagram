@@ -1,5 +1,5 @@
 var express = require('express');
-var instagram = require('instagram').createClient('a8d764b1a7fe4089959910ee6bdcedce',	'253a2b9abade4f25adb3825249d98b85');
+var instagram = require('./nodestagram').createClient('a8d764b1a7fe4089959910ee6bdcedce',	'253a2b9abade4f25adb3825249d98b85');
 
 
 var app = express.createServer(express.logger());
