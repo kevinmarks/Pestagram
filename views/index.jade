@@ -14,13 +14,13 @@ html
           div.item
             div.holder
               a.imglink(href="")
-                img(src="#{image.images.low_resolution.url}", width="192")
+                img(src="#{image.images.low_resolution.url}", width="192", height="192")
             - if (image.caption) 
                 p.description #{image.caption.text}
             p.stats #{image.likes.count} likes  #{image.comments.count} comments
             div.convo.attribution
               a.imglink(href="")
-                img(src="#{image.user.profile_picture}")
+                img(src="#{image.user.profile_picture}", width="30", height="30")
               p
                 a(href="") #{image.user.full_name} 
                 -if (image.tags) 
