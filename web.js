@@ -16,15 +16,30 @@ app.configure(function(){
 
 app.get('/', function(request, response) {
   instagram.media.popular(function (images, error) {
-    response.render('index', {title:'Hello World!', 
-    url: request.headers.host, images:images});
+    response.render('index', {title:'home', 
+      url: request.headers.host, images:images});
     });
 });
 
 app.get('/tag/:tag', function(request, response) {
   instagram.tags.media(request.params.tag,function (images, error) {
-    response.render('index', {title:'Hello World!', 
-    url: request.headers.host, images:images});
+    if(!error) {
+        response.render('index', {title:'Tag ' + request.params.tag, 
+          url: request.headers.host, images:images});
+    } else {
+        response.redirect('back');
+    }
+    });
+});
+
+app.get('/user/:uid', function(request, response) {
+  instagram.users.media(request.params.uid,function (images, error) {
+    if(!error) {
+        response.render('index', {title:'user', 
+          url: request.headers.host, images:images});
+    } else {
+        response.redirect('back');
+    }
     });
 });
 

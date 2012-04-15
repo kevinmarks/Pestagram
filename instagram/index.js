@@ -53,7 +53,6 @@ InstagramClient.prototype.fetch = function (path, params, callback) {
         if (typeof(meta['code']) != 'undefined') {
             code = meta['code'];
         }
-        ;
         if (code == 200) {
             callback(response['data'], 
                  null, 
@@ -138,6 +137,10 @@ InstagramUsersClient.prototype.id = function (id, callback) {
 }
 
 InstagramUsersClient.prototype.media = function (id, params, callback) {
+    if (arguments.length < 3) {
+	var callback = params;
+	params = {};
+    }
     this.parent.fetch('/v1/users/'+id+'/media/recent', params, callback);
 }
 
