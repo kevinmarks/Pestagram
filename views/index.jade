@@ -21,8 +21,8 @@ html
               div.item.h-entry
                 div.e-content
                     div.holder
-                      a.imglink.u-photo(href="#{image.link}")
-                        img(src="#{image.images.low_resolution.url}", width="192", height="192")
+                      a.imglink.u-url(href="#{image.link}")
+                        img.u-photo(src="#{image.images.low_resolution.url}", width="192", height="192")
                     - if (image.caption) 
                         p.description #{image.caption.text}
                     p.stats #{image.likes.count} likes  #{image.comments.count} comments
