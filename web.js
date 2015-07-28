@@ -35,7 +35,11 @@ app.get('/tag/:tag', function(request, response) {
 app.get('/user/:uid', function(request, response) {
   instagram.users.media(request.params.uid,function (images, error) {
     if(!error) {
-        response.render('index', {title:'Pestagram: user '+ images[0].user.username, 
+        var titleslug='Pestagram: user '; 
+        if (images && images[0] && images[0].user) {
+            titleslug = titleslug + images[0].user.username;
+        }
+        response.render('index', {title:titleslug, 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');
@@ -46,7 +50,11 @@ app.get('/user/:uid', function(request, response) {
 app.get('/loc/:id', function(request, response) {
   instagram.locations.media(request.params.id,function (images, error) {
     if(!error) {
-        response.render('index', {title:'Pestagram: location ' + images[0].location.name , 
+        var titleslug='Pestagram: location '; 
+        if (images && images[0] && images[0].location) {
+            titleslug = titleslug + images[0].location.name;
+        }
+        response.render('index', {title:titleslug, 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');
