@@ -10,7 +10,7 @@ body {font-family:"helvetica neue",arial,sans-serif;font-size:10px;color:#211922
 /* FOUNDATION
 --------------------------------------------------------------------------------------- */
 h1 {margin: 32px 0 11px; font-size: 3em;}
-h2 {padding: 0 0 8px; font-size: 2.5em;}
+h2 {padding: 0 0 8px; font-size: .75em;}
 h1, h2 {letter-spacing: -0.0125em; font-weight: bold;}
 p {margin: 0 0 .8em; line-height: 1.35em;}
 a {font-weight: bold; color: #221919; text-decoration: none; outline: none;}
