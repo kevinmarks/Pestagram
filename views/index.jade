@@ -1,3 +1,11 @@
+- var pubDate = function(datestamp){
+-   var timestamp = new Date(Date(datestamp));
+-   return timestamp.toISOString();
+-}
+- var showDate = function(datestamp){
+-   var timestamp = new Date(Date(datestamp));
+-   return timestamp.toLocaleString();
+-}
 doctype html
 html
   head
@@ -33,11 +41,14 @@ html
                       a.imglink(href="/user/#{image.user.id}")
                         img.u-photo(src="#{image.user.profile_picture}", width="30", height="30")
                       p
-                        a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name} 
+                        a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name}
+                        | at 
+                    time.dt-published(time="#{pubDate(image.created_time)}") #{showDate(image.created_time)} 
                     -if (image.tags[0]) 
                       | onto 
                       each tag in image.tags
                         a.p-category(href="/tag/#{tag}", rel="tag")#{tag} 
+                        
                 div.convo.comments
                   each comment in image.comments.data
                     div.comment.p-comment.h-cite
