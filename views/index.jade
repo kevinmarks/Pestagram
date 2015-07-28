@@ -1,9 +1,9 @@
 - var pubDate = function(datestamp){
--   var timestamp = new Date(Date(datestamp));
+-   var timestamp = new Date(datestamp * 1000);
 -   return timestamp.toISOString();
 -}
 - var showDate = function(datestamp){
--   var timestamp = new Date(Date(datestamp));
+-   var timestamp = new Date(datestamp*1000);
 -   return timestamp.toLocaleString();
 -}
 doctype html
