@@ -30,10 +30,10 @@ html
                         | at 
                         a(href="/loc/#{image.location.id}") #{image.location.name}
                     div.convo.attribution.p-author.h-card
-                      a.imglink.u-photo(href="")
-                        img(src="#{image.user.profile_picture}", width="30", height="30")
+                      a.imglink(href="/user/#{image.user.id}")
+                        img.u-photo(src="#{image.user.profile_picture}", width="30", height="30")
                       p
-                        a.p-name(href="/user/#{image.user.id}") #{image.user.full_name} 
+                        a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name} 
                     -if (image.tags[0]) 
                       | onto 
                       each tag in image.tags
@@ -44,7 +44,7 @@ html
                         span.p-author.h-card
                           a.imglink(href="/user/#{comment.from.id}")
                             img.u-photo(src="#{comment.from.profile_picture}", width="30", height="30") 
-                          a.p-name(href="/user/#{comment.from.id}") #{comment.from.full_name} 
+                          a.p-name.u-url(href="/user/#{comment.from.id}") #{comment.from.full_name} 
                         p.p-name #{comment.text}
                   
     div.footer
