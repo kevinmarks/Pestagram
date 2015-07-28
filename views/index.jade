@@ -41,8 +41,8 @@ html
                       a.imglink(href="/user/#{image.user.id}")
                         img.u-photo(src="#{image.user.profile_picture}", width="30", height="30")
                       p
-                        a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name}
-                        | at 
+                        a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name} 
+                    | at 
                     time.dt-published(datetime="#{pubDate(image.created_time)}") #{showDate(image.created_time)} 
                     -if (image.tags[0]) 
                       | onto 
@@ -59,3 +59,6 @@ html
                         p.p-name #{comment.text}
                   
     div.footer
+      |making Instagram look like Pinterest since 2013 by
+      a(href="http://kevinmarks.com") Kevin Marks 
+      a(href="https://github.com/kevinmarks/Pestagram") Source code 
