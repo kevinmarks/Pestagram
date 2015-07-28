@@ -43,7 +43,7 @@ html
                       p
                         a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name}
                         | at 
-                    time.dt-published(time="#{pubDate(image.created_time)}") #{showDate(image.created_time)} 
+                    time.dt-published(datetime="#{pubDate(image.created_time)}") #{showDate(image.created_time)} 
                     -if (image.tags[0]) 
                       | onto 
                       each tag in image.tags
