@@ -17,7 +17,7 @@ app.configure(function(){
 app.get('/', function(request, response) {
   instagram.media.popular(function (images, error) {
     response.render('index', {title:'Pestagram: recent', 
-      url: request.headers.host, images:addImageTimeStamps(images)});
+      url: request.headers.host, images:images});
     });
 });
 
