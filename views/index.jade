@@ -7,7 +7,7 @@ html
     script(src='/grid.js')
     link(rel='stylesheet', href='/grid.css')
     title #{title}
-  body
+  body.h-feed
     div.header
       a.imglink(href="/")
         img.logo(src="/images/pestagram2.png") 
@@ -19,9 +19,9 @@ html
     div#grid
         each image in images
           -if (image.type == 'image')
-              div.item
-                div.holder
-                  a.imglink(href="#{image.link}")
+              div.item.h-entry
+                div.holder.e-content
+                  a.imglink.u-photo(href="#{image.link}")
                     img(src="#{image.images.low_resolution.url}", width="192", height="192")
                 - if (image.caption) 
                     p.description #{image.caption.text}
@@ -29,20 +29,22 @@ html
                 - if (image.location)
                     | at 
                     a(href="/loc/#{image.location.id}") #{image.location.name}
-                div.convo.attribution
-                  a.imglink(href="")
+                div.convo.attribution.p-author.h-card
+                  a.imglink.u-photo(href="")
                     img(src="#{image.user.profile_picture}", width="30", height="30")
                   p
-                    a(href="") #{image.user.full_name} 
+                    a.p-name(href="") #{image.user.full_name} 
                     - if (image.tags[0]) 
                       | onto 
                       each tag in image.tags
                         a(href="/tag/#{tag}", rel="tag")#{tag} 
                 div.convo.comments
                   each comment in image.comments.data
-                    div.comment
-                      a.imglink(href="")
-                        img(src="#{comment.from.profile_picture}", width="30", height="30") 
-                      p #{comment.from.full_name} #{comment.text}
+                    div.comment.p-comment.h-cite
+                        span.p-author.h-card
+                          a.imglink(href="")
+                            img.u-photo(src="#{comment.from.profile_picture}", width="30", height="30") 
+                          span.p-name #{comment.from.full_name} 
+                        p.p-name #{comment.text}
                   
     div.footer
