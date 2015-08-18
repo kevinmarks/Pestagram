@@ -16,7 +16,7 @@ app.configure(function(){
 
 app.get('/', function(request, response) {
   instagram.media.popular(function (images, error) {
-    response.render('index', {title:'Pestagram: Home', 
+    response.render('index', {title:'Pestagram: recent', 
       url: request.headers.host, images:images});
     });
 });
@@ -24,7 +24,7 @@ app.get('/', function(request, response) {
 app.get('/tag/:tag', function(request, response) {
   instagram.tags.media(request.params.tag,function (images, error) {
     if(!error) {
-        response.render('index', {title:'Pestagram: Tag ' + request.params.tag, 
+        response.render('index', {title:'Pestagram: tag ' + request.params.tag, 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');
@@ -35,7 +35,11 @@ app.get('/tag/:tag', function(request, response) {
 app.get('/user/:uid', function(request, response) {
   instagram.users.media(request.params.uid,function (images, error) {
     if(!error) {
-        response.render('index', {title:'Pestagram: user', 
+        var titleslug='Pestagram: user '; 
+        if (images && images[0] && images[0].user) {
+            titleslug = titleslug + images[0].user.username;
+        }
+        response.render('index', {title:titleslug, 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');
@@ -46,7 +50,11 @@ app.get('/user/:uid', function(request, response) {
 app.get('/loc/:id', function(request, response) {
   instagram.locations.media(request.params.id,function (images, error) {
     if(!error) {
-        response.render('index', {title:'Pestagram: location', 
+        var titleslug='Pestagram: location '; 
+        if (images && images[0] && images[0].location) {
+            titleslug = titleslug + images[0].location.name;
+        }
+        response.render('index', {title:titleslug, 
           url: request.headers.host, images:images});
     } else {
         response.redirect('back');
