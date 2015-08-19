@@ -25,38 +25,42 @@ html
       h2.p-name #{title}
     div#grid
         each image in images
-          -if (image.type == 'image')
-              div.item.h-entry
-                div.e-content
-                    div.holder
-                      a.imglink.u-url(href="#{image.link}")
-                        img.u-photo(src="#{image.images.low_resolution.url}", width="192", height="192")
-                    - if (image.caption) 
-                        p.description #{image.caption.text}
-                    p.stats #{image.likes.count} likes  #{image.comments.count} comments
-                    - if (image.location)
-                        | at 
-                        a(href="/loc/#{image.location.id}") #{image.location.name}
-                    div.convo.attribution.p-author.h-card
-                      a.imglink(href="/user/#{image.user.id}")
-                        img.u-photo(src="#{image.user.profile_picture}", width="30", height="30")
-                      p
-                        a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name} 
+          div.item.h-entry
+            div.e-content
+                div.holder
+                  a.imglink.u-url(href="#{image.link}")
+                    -if (image.type =="video")
+                      video.u-video(poster="#{image.images.low_resolution.url}",src="#{image.videos.standard_resolution.url}", width="192", height="192", controls,preload=false)
+                        a(href="#{image.videos.standard_resolution.url}")
+                    -else
+                      img(src="#{image.images.low_resolution.url}", width="192", height="192")
+                a.u-photo(href="#{image.images.standard_resolution.url}")
+                - if (image.caption) 
+                    p.description #{image.caption.text}
+                p.stats #{image.likes.count} likes  #{image.comments.count} comments
+                - if (image.location)
                     | at 
-                    time.dt-published(datetime="#{pubDate(image.created_time)}") #{showDate(image.created_time)} 
-                    -if (image.tags[0]) 
-                      | onto 
-                      each tag in image.tags
-                        a.p-category(href="/tag/#{tag}", rel="tag")#{tag} 
-                        
-                div.convo.comments
-                  each comment in image.comments.data
-                    div.comment.p-comment.h-cite
-                        span.p-author.h-card
-                          a.imglink(href="/user/#{comment.from.id}")
-                            img.u-photo(src="#{comment.from.profile_picture}", width="30", height="30") 
-                          a.p-name.u-url(href="/user/#{comment.from.id}") #{comment.from.full_name} 
-                        p.p-name #{comment.text}
+                    a(href="/loc/#{image.location.id}") #{image.location.name}
+                div.convo.attribution.p-author.h-card
+                  a.imglink(href="/user/#{image.user.id}")
+                    img.u-photo(src="#{image.user.profile_picture}", width="30", height="30")
+                  p
+                    a.p-name.u-url(href="/user/#{image.user.id}") #{image.user.full_name} 
+                | at 
+                time.dt-published(datetime="#{pubDate(image.created_time)}") #{showDate(image.created_time)} 
+                -if (image.tags[0]) 
+                  | onto 
+                  each tag in image.tags
+                    a.p-category(href="/tag/#{tag}", rel="tag")#{tag} 
+                    
+            div.convo.comments
+              each comment in image.comments.data
+                div.comment.p-comment.h-cite
+                    span.p-author.h-card
+                      a.imglink(href="/user/#{comment.from.id}")
+                        img.u-photo(src="#{comment.from.profile_picture}", width="30", height="30") 
+                      a.p-name.u-url(href="/user/#{comment.from.id}") #{comment.from.full_name} 
+                    p.p-name #{comment.text}
                   
     div.footer
       |making Instagram look like Pinterest since 2013 by
