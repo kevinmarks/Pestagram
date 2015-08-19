@@ -33,8 +33,7 @@ html
                       video.u-video(poster="#{image.images.low_resolution.url}",src="#{image.videos.standard_resolution.url}", width="192", height="192", controls,preload=false)
                         a(href="#{image.videos.standard_resolution.url}")
                     -else
-                      img(src="#{image.images.low_resolution.url}", width="192", height="192")
-                a.u-photo(href="#{image.images.standard_resolution.url}")
+                      img.u-photo(src="#{image.images.standard_resolution.url}", width="192", height="192")
                 - if (image.caption) 
                     p.description #{image.caption.text}
                 p.stats #{image.likes.count} likes  #{image.comments.count} comments
